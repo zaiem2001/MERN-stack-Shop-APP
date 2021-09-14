@@ -1,7 +1,7 @@
 # MERN-stack-Shop-App
 created a MERN stack app and deployed it on heroku.
 
-# it's a simple yet complicated fully functional web app.
+##### it's a simple yet complicated fully functional web app.
 
 # uploaded it on heroku link to website is :-
 Link : https://zshopapp.herokuapp.com/
