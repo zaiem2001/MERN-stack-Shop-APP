@@ -15,7 +15,6 @@ const app = express();
 app.use(express.json());
 
 const MONGO_URL = process.env.MONGO_URI;
-app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose
   .connect(MONGO_URL, {
@@ -37,6 +36,26 @@ app.use("/api/upload", uploadRoute);
 app.get("/api/config/paypal", (req, res) => {
   res.status(200).json(process.env.PAYPAL_CLIENT_ID);
 });
+
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
+if (process.env.ENV === "production") {
+  // console.log(path.join(__dirname, "../frontend/build" + " --> 1st"));
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) => {
+    // console.log(
+    //   path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    // );
+    return res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    );
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
 
 app.use(errorMiddleware.notFound);
 app.use(errorMiddleware.errorHandler);
