@@ -60,3 +60,107 @@ a {
   display: block;
   width: 90px;
 }
+
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 775px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .left {
+    width: 50%;
+  }
+
+  .branding {
+    font-size: 25px;
+  }
+
+  .itemContainer {
+    background-color: #2f3542;
+    position: absolute;
+    top: 8.8%;
+    left: 0%;
+    z-index: 999;
+    bottom: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: all ease-in-out 300ms;
+  }
+
+  .itemContainer.active {
+    transform: translateX(0);
+  }
+
+  .items {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .items li {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    right: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobile span {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    display: block;
+    border-radius: 2px;
+    transition: all ease-in-out 400ms;
+  }
+
+  .mobile span:nth-child(1) {
+    top: 10%;
+    position: absolute;
+  }
+
+  .mobile span:last-child {
+    position: absolute;
+    bottom: 10%;
+  }
+
+  .toggleB {
+    transform: translateX(-40%);
+  }
+
+  .toggle {
+    transform: translateX(40%);
+  }
+
+  .searcBox {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .branding {
+    width: 90vw !important;
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+}

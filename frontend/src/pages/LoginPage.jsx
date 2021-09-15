@@ -93,12 +93,7 @@ const LoginPage = ({ location, history }) => {
           ></i>
         </Form.Group>
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="my-3"
-          style={{ width: "200px" }}
-        >
+        <Button type="submit" variant="primary" className="my-3 w-100">
           Sign In
         </Button>
       </Form>

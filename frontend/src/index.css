@@ -105,3 +105,31 @@ a {
 .carousel a {
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 500px) {
+  .searchBox {
+    display: none;
+  }
+  .mobileImg {
+    width: 320px;
+    transform: translateX(-7%);
+    object-fit: contain;
+  }
+
+  .carousel-caption {
+    text-align: center;
+    left: 0;
+    width: 90vw;
+    text-align: center;
+    margin: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+  .carousel-caption h2 {
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+  }
+}

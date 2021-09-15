@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-const SearchBox = () => {
+const SearchBox = ({ set }) => {
   const [keyword, setKeyword] = useState("");
 
   const history = useHistory();
 
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const width = window.innerWidth;
+
+    width < 500 ? setShow(false) : setShow(true);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    set(false);
 
     if (keyword.trim()) {
       history.push(`/search/${keyword}`);
@@ -18,7 +27,12 @@ const SearchBox = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} inline style={{ display: "flex" }}>
+    <Form
+      onSubmit={handleSubmit}
+      inline
+      style={{ display: show ? "flex" : "none" }}
+      className="searchBox"
+    >
       <Form.Control
         type="text"
         style={{ color: "white" }}

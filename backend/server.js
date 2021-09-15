@@ -39,6 +39,8 @@ app.get("/api/config/paypal", (req, res) => {
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
+// FOR DEPLOYMENT PURPOSE.
+
 if (process.env.ENV === "production") {
   // console.log(path.join(__dirname, "../frontend/build" + " --> 1st"));
   app.use(express.static(path.join(__dirname, "../frontend/build")));
@@ -56,6 +58,8 @@ if (process.env.ENV === "production") {
     res.send("API is running....");
   });
 }
+
+// ############################################
 
 app.use(errorMiddleware.notFound);
 app.use(errorMiddleware.errorHandler);

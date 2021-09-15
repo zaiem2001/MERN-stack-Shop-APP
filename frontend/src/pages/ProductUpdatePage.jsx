@@ -93,7 +93,7 @@ const ProductEditPage = ({ match, history }) => {
 
       const data = await resp.json();
 
-      console.log(data);
+      // console.log(data);
 
       setImage(data);
       setuploading(false);
